@@ -1,4 +1,4 @@
-PRACTICE QUESTIONS
+# PRACTICE QUESTIONS
 
 1. Functions are very useful in large programs we can perform a specific task just by calling its name and doing it rather than just rewriting the whole code again and again .
 2. The code in the function will only be executed when the function is called .

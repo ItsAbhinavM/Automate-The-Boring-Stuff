@@ -1,4 +1,4 @@
-PRACTISE QUESTIONS
+# PRACTISE QUESTIONS
 
 1. The [] is used for representing a list in python . Any sequence enclosed within [] is considered as list .
 2. spam[2]='hello'

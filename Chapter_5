@@ -1,0 +1,11 @@
+# PRACTICE PROBLEMS
+
+1. An empty dictionary will look like :  {}
+2. {'foo':42}
+3. Unlike list dictionary can be unordered , a list can store single data whereas a dictionary can store it only in a key-value format .
+4. We will get a KeyError since there is no key known as 'foo' in the dictionary .
+5. Both are same since cat in spam checks for the cat key present in the dictionary whereas the spam.keys checks specifically  for the key .
+6. In cat in spam it checks for the cat key in the dictionary and in cat in spam.values it checks for the cat value in the dictionary .
+7. 
+8. The pprint() module.
+
