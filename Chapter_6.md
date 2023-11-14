@@ -18,3 +18,20 @@ PRACTICE QUESTIONS
 9. rjust(),ljust() and centre()
 10. Using the rstrip()  for trimming the whitespace in the right side and lstrip() for stripping the left side of the string .
 
+# PRACTICE PROJECTS
+
+## Table Printer
+
+```
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+             ['dogs', 'cats', 'moose', 'goose']]
+def printTables(tableData):
+    for i in range(len(tableData)):
+        for j in range(len(tableData)):
+            print(tableData[j][i],end=' ')
+        print(' ')
+printTables(tableData)
+```
+
+
