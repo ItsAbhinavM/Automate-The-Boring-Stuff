@@ -1,4 +1,4 @@
-PRACTICE QUESTIONS
+# PRACTICE QUESTIONS
 
 1. The escape characters in python are : /' , /" , // , /n , /t
 2. The /n is used to print the next characters in the next line and the /t is used to print the characters after a tab space .
