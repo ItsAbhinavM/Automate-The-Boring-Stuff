@@ -25,4 +25,73 @@
 
 # PRACTICE PROJECTS
 
+## Date detection
+```
+import re
+date_check=re.compile(r'[1-31]')
+month_check=re.compile(r'[1-12]')
+year_check=re.compile(r'.{4}')
+
+rx=re.compile(r'(\d\d)-(\d\d)-(\d\d\d\d)')
+val=rx.search(input("Enter the date here : "))
+date=val.group(1)
+month=val.group(2)
+year=val.group(3)
+def date_validation(date):
+    if date_check.search(date)!='':
+        return True
+    else:
+        return False
+
+def month_validation(month):
+    if month_check.search(month) is None:
+        return False
+    else:
+        return True
+        
+def year_validation(year):
+    if year_check.search(year) is  None:
+        return False
+    else:
+        return True
+count=0
+if date_validation(date):
+    count+=1
+if month_validation(month):
+    count+=1
+if year_validation(year):
+    count+=1
+if count==3:
+    print("It is a valid date !") 
+else:
+    print("Improper date !")
+```
+
+## Strong Password detector
+```
+import re
+size_check=re.compile(r'.{8,}')
+upper_check=re.compile(r'[A-Z]')
+lower_check=re.compile(r'[a-z]')
+digit_check=re.compile(r'[0-9]')
+
+def pass_checker(passw):
+    if size_check.search(passw)!='':
+        return False
+    elif upper_check.search(passw)!='':
+        return None
+    elif lower_check.search(passw)!='':
+        return None
+    elif digit_check.search(passw)!='':
+        return None
+    else:
+        return True
+    
+password=input("Enter you password here : ")
+if pass_checker(password):
+    print("Your password is strong")
+else:
+    print("Your password is weak")
+```
+
 
