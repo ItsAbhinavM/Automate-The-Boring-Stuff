@@ -12,4 +12,69 @@
 
 # PRACTICE PROJECTS
 
+## Sandwich maker
+```
+import pyinputplus as pip
+count=0
+dough_decider=pip.inputMenu(["wheat"," white","sourdough"])
+if dough_decider=="Wheat":
+    count+=1
+elif dough_decider=="White":
+    count+=1
+elif dough_decider=="sourdough":
+    count+=1
+else:
+    pass
+meat_decider=pip.inputMenu(["chicken","turkey","ham","tofu"])
+if meat_decider=="Chicken":
+    count+=1
+elif meat_decider=="turkey":
+    count+=1
+elif meat_decider=="ham":
+    count+=1
+elif meat_decider=="tofu":
+    count+=1
+else:
+    pass
+prompt="Do you want cheese ?"
+cheese_decider=pip.inputYesNo(prompt)
+if cheese_decider.lower()=="yes":
+    type_cheese_decider=pip.inputMenu(["cheddar","Swiss","mozzarella"])
+    if type_cheese_decider=="Cheddar":
+        count+=1
+    elif type_cheese_decider=="Swiss":
+        count+=1
+    elif type_cheese_decider=="mozzarella":
+        count+=1
+    else:
+        count+=1
+smthng_decider=pip.inputYesNo("Do you want mayo, mustard, lettuce, or tomato ?")
+if smthng_decider.lower()=='yes':
+    count+=1
+number=pip.inputInt("how many sandwiches you want ? ")
+print("The total cost is : ",number*count)
+```
 
+## Multiplication Quiz
+``` 
+import pyinputplus as pip
+import random, time
+
+numberOfQuestions = 10
+correctAnswers = 0
+count=0
+for questionNumber in range(numberOfQuestions):
+    num1 = random.randint(0, 9)
+    num2 = random.randint(0, 9)
+    try:
+        inp=pip.inputStr(f'What is the product of {num1}x{num2} : ',allowRegexes=['^%s$' % (num1*num2)],blockRegexes=[('.*', 'Incorrect!')],timeout=8, limit=3)
+        if inp==str((num1*num2)):
+            print("Correct !")
+            count+=1
+    except pip.TimeoutException:
+        print('Out of time!')
+    except pip.RetryLimitException:
+        print('Out of tries!')
+    time.sleep(1) 
+print(f'Your Score is : {count}')
+```
