@@ -14,4 +14,31 @@
 
 # PRACTICE PROJECTS 
 
+## Regex Search
+```
+import pathlib as p
+import time 
 
+user_input=input("Enter the text that you need to search : ")
+status=True
+time.sleep(1)
+print("Searching through my databases .....")
+if status:
+    open_=open('hi.txt','r')
+    read_=open_.read().split()
+    if user_input in read_:
+        print(user_input,"found in the file hi.txt")
+        status=False
+    else:
+        print("The word",user_input,"not found in file 1")
+        print("Alalysing databases....")
+        time.sleep(2)
+if status:
+    open_2=open('hello.txt','r')
+    read_2=open_2.read().split()
+    if user_input in read_2:
+        print(user_input,"finally found in file hello.txt")
+        status=False
+    else:
+        print("sorry the word ",user_input,"is not there in the database .")
+```
