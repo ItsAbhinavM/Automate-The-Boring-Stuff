@@ -1,2 +1,4 @@
 # automate-the-boring-stuff
-Here we will solve the exercise questions from chapter 1 to 11 
+
+Completed the practice questions till chapter 10 and attempted the practice projects  till chapter 9.
+
