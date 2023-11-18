@@ -58,14 +58,15 @@ True
 8.The number of blocks in this code is 4 , since the indentation of the code changed four times .
 
 9.
-''' 
+``` 
 spam=1
 if spam==1:
     print("Hello")
 elif spam==2:
     print("Howdy")
 else:
-    print("Greetings .")'''
+    print("Greetings .")
+```
 
 10.ctlr+c which inturns break the code
 
