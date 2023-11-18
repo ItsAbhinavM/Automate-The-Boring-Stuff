@@ -1,4 +1,5 @@
-# automate-the-boring-stuff
+# Amfoss curiculum 1
 
-Completed the Practice questions till chapter 10 and attempted the practice projects  till chapter 9.
+The following repository consist of the answers of the practice questions and practice projects of the book automate the boring stuff with python .
 
+The link for the book is given below [Automate the boring stuff](https://automatetheboringstuff.com/#toc) .
