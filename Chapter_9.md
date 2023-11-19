@@ -62,7 +62,30 @@ if(len(sys.argv) == 2):
 
     print(txt)
 
-    with open('madlibs_subs.txt', 'w') as newTxtfile:
+    with open('hello.txt', 'w') as newTxtfile:
         newTxtfile.write(txt)
 ```
 
+## Extending mulit clipboard
+```
+import shelve, pyperclip, sys
+mcbShelf = shelve.open('mcb')
+
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+
+elif len(sys.argv) == 3 and sys.argv[1].lower() == 'delete':
+    if(sys.argv[2] in mcbShelf):
+        del(mcbShelf[sys.argv[2]])
+elif len(sys.argv) == 2:
+    
+    # List keywords and load content.
+    if sys.argv[1].lower() == 'list':
+        pyperclip.copy(str(list(mcbShelf.keys())))
+    elif sys.argv[1].lower() == 'deleteall':
+        mcbShelf.clear()
+    elif sys.argv[1] in mcbShelf:
+        pyperclip.copy(mcbShelf[sys.argv[1]])
+
+mcbShelf.close()
+```
