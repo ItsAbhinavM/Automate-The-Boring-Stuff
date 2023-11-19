@@ -42,3 +42,27 @@ if status:
     else:
         print("sorry the word ",user_input,"is not there in the database .")
 ```
+## Mad Lib
+```
+import pyinputplus as pyip
+import re
+import sys
+
+keywords = ['ADJECTIVE', 'NOUN', 'ADVERB', 'VERB']
+
+if(len(sys.argv) == 2):
+    with open(sys.argv[1]) as txtfile:
+        txt = txtfile.read()
+
+    for keyword in keywords:
+        while(keyword in txt):
+            print(f'Found {keyword}')
+            replacement = pyip.inputStr(f'Enter an {keyword.lower()}: ')
+            txt = txt.replace(keyword, replacement, 1)
+
+    print(txt)
+
+    with open('madlibs_subs.txt', 'w') as newTxtfile:
+        newTxtfile.write(txt)
+```
+
