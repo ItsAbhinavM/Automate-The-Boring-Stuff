@@ -23,4 +23,75 @@ if(len(sys.argv) == 4):
 else: 
     print('Usage: python selectiveCopy.py filetype oldDir newDir')
 ```
+## Deleting unneeded files
+```
+import os, sys
+from pathlib import Path
 
+if(len(sys.argv) == 3):
+    searchedDir = Path(sys.argv[1])
+
+    try:
+        minSize = int(sys.argv[2]) 
+    except ValueError:
+        print(f'{minSize} is not an Integer.')
+    else:
+        # save each filename and size in a tuple under the key 'entries' in a dict
+        fileTable = {} 
+        fileTable['entries'] = []
+        fileTable.setdefault('pathlength', 0)
+
+        for dirname, dirnames , filenames in os.walk(searchedDir):
+            for filename in filenames:
+                fileSize = os.path.getsize(os.path.join(dirname, filename))
+
+                # check if the current file is bigger than the size given in the second argument
+                if(fileSize > minSize):
+                    abspath = os.path.abspath(filename) 
+                    fileTable['entries'].append((abspath, fileSize))
+                    pathlength = len(abspath)
+                    if pathlength > fileTable['pathlength']:   # Check for the longest pathlength in dir 
+                        fileTable['pathlength'] = pathlength
+
+        # pretty print the filenames and sizes     
+        for filePath, size in fileTable['entries']:
+            print(filePath.ljust(fileTable['pathlength']+1) + str(size))
+
+else:
+    print('Usage: python deletingUnneededFiles.py path size')
+```
+## Filling Gaps
+```
+import shutil
+from pathlib import Path
+
+def close_and_insert_gaps(folder_path, file_prefix, index_to_insert=None):
+    folder_path = Path(folder_path)
+    
+    # Updated line 5
+    file_count = len(list(folder_path.glob(f"{file_prefix}*")))
+    padding_length = len(str(file_count))
+    pattern = f'{file_prefix}{{:0{padding_length}}}.txt'
+
+    file_list = sorted(folder_path.glob(f'{file_prefix}*.txt'))
+
+    for index, file_path in enumerate(file_list, start=1):
+        expected_name = pattern.format(index)
+
+        if index_to_insert and index == index_to_insert:
+            new_path = folder_path / f'{file_prefix}{index_to_insert:0{padding_length}}.txt'
+            shutil.move(file_path, new_path)
+            print(f'Inserted {new_path.name}')
+
+        elif file_path.stem != expected_name:
+            new_path = folder_path / f'{file_prefix}{index:0{padding_length}}.txt'
+            shutil.move(file_path, new_path)
+            print(f'Renamed {file_path.name} to {new_path.name}')
+
+if __name__ == "__main__":
+    folder_path = input("Enter folder path: ")
+    file_prefix = input("Enter file prefix: ")
+    index_to_insert = int(input("Enter index to insert (1-based, enter 0 to skip insertion): "))
+
+    close_and_insert_gaps(folder_path, file_prefix, index_to_insert)
+```
