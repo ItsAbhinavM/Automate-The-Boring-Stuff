@@ -32,6 +32,7 @@ logging.basicconfig(level=logging.DEBUG, format=' %(asctime)s -%(levelname)s -  
 12. For setting a breakpoint in Mu , click the line number to make the red dot appear near to it .
 
 # PRACTICE PROJECTS
+## Coin Toss
 ```
 import random
 guess = ''
