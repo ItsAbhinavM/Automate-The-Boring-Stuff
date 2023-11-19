@@ -67,8 +67,6 @@ from pathlib import Path
 
 def close_and_insert_gaps(folder_path, file_prefix, index_to_insert=None):
     folder_path = Path(folder_path)
-    
-    # Updated line 5
     file_count = len(list(folder_path.glob(f"{file_prefix}*")))
     padding_length = len(str(file_count))
     pattern = f'{file_prefix}{{:0{padding_length}}}.txt'
@@ -88,10 +86,9 @@ def close_and_insert_gaps(folder_path, file_prefix, index_to_insert=None):
             shutil.move(file_path, new_path)
             print(f'Renamed {file_path.name} to {new_path.name}')
 
-if __name__ == "__main__":
-    folder_path = input("Enter folder path: ")
-    file_prefix = input("Enter file prefix: ")
-    index_to_insert = int(input("Enter index to insert (1-based, enter 0 to skip insertion): "))
+folder_path = input("Enter folder path: ")
+file_prefix = input("Enter file prefix: ")
+index_to_insert = int(input("Enter index to insert (1-based, enter 0 to skip insertion): "))
 
-    close_and_insert_gaps(folder_path, file_prefix, index_to_insert)
+close_and_insert_gaps(folder_path, file_prefix, index_to_insert)
 ```
